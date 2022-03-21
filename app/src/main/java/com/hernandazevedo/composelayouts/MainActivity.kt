@@ -23,6 +23,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+private fun MyApp() {
+    LayoutsCodelab()
+}
+
 
 @Preview(showBackground = true, widthDp = 300, heightDp = 300)
 @Composable
@@ -30,17 +35,4 @@ fun LayoutsCodelabPreview() {
     ComposeLayoutsTheme {
         LayoutsCodelab()
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PhotographerCardPreview() {
-    ComposeLayoutsTheme {
-        MyApp()
-    }
-}
-
-@Composable
-private fun MyApp() {
-    PhotographerCard()
 }
