@@ -51,3 +51,19 @@ fun LayoutsCodelabPreview() {
         LayoutsCodelab()
     }
 }
+
+@Preview
+@Composable
+fun TextWithPaddingToBaselinePreview() {
+    ComposeLayoutsTheme {
+        Text("Hi there!", Modifier.firstBaselineToTop(32.dp))
+    }
+}
+
+@Preview
+@Composable
+fun TextWithNormalPaddingPreview() {
+    ComposeLayoutsTheme {
+        Text("Hi there!", Modifier.padding(top = 32.dp))
+    }
+}

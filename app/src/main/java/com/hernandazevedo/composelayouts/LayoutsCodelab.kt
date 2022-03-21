@@ -61,11 +61,22 @@ private fun TopBarCodelab() {
     }, navigationIcon = { Icon(Icons.Default.ArrowBack, contentDescription = null)})
 }
 
+//@Composable
+//fun BodyContent(modifier: Modifier = Modifier) {
+//    Column(modifier = modifier.padding(8.dp)) {
+//        Text(text = "Hi there!")
+//        ScrollingList()
+//    }
+//}
+
+
 @Composable
 fun BodyContent(modifier: Modifier = Modifier) {
-    Column(modifier = modifier.padding(8.dp)) {
-        Text(text = "Hi there!")
-        ScrollingList()
+    MyOwnColumn(modifier.padding(8.dp)) {
+        Text("MyOwnColumn")
+        Text("places items")
+        Text("vertically.")
+        Text("We've done it by hand!")
     }
 }
 
@@ -133,3 +144,4 @@ fun ImageListItem(index: Int) {
         Text("Item #$index", style = MaterialTheme.typography.subtitle1)
     }
 }
+
