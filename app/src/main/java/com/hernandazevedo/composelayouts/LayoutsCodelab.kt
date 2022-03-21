@@ -1,6 +1,7 @@
 package com.hernandazevedo.composelayouts
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -61,23 +62,40 @@ private fun TopBarCodelab() {
     }, navigationIcon = { Icon(Icons.Default.ArrowBack, contentDescription = null)})
 }
 
-//@Composable
-//fun BodyContent(modifier: Modifier = Modifier) {
-//    Column(modifier = modifier.padding(8.dp)) {
-//        Text(text = "Hi there!")
-//        ScrollingList()
-//    }
-//}
+@Composable
+fun BodyContent(modifier: Modifier = Modifier) {
+    Column(modifier = modifier.padding(8.dp)) {
+        Text(text = "Hi there!")
+        ScrollingList()
+    }
+}
 
 
 @Composable
-fun BodyContent(modifier: Modifier = Modifier) {
+fun BodyContentCustomColumn(modifier: Modifier = Modifier) {
     MyOwnColumn(modifier.padding(8.dp)) {
         Text("MyOwnColumn")
         Text("places items")
         Text("vertically.")
         Text("We've done it by hand!")
     }
+}
+val topics = listOf(
+    "Arts & Crafts", "Beauty", "Books", "Business", "Comics", "Culinary",
+    "Design", "Fashion", "Film", "History", "Maths", "Music", "People", "Philosophy",
+    "Religion", "Social sciences", "Technology", "TV", "Writing"
+)
+
+@Composable
+fun BodyContentStaggeredGrid(modifier: Modifier = Modifier) {
+    Row(modifier = modifier.horizontalScroll(rememberScrollState())) {
+        StaggeredGrid(modifier = modifier, rows = 5) {
+            for (topic in topics) {
+                Chip(modifier = Modifier.padding(8.dp), text = topic)
+            }
+        }
+    }
+
 }
 
 

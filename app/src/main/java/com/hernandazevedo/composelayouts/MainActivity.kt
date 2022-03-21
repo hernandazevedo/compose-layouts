@@ -43,6 +43,23 @@ private fun MyApp() {
     LayoutsCodelab()
 }
 
+@Preview
+@Composable
+fun ChipPreview() {
+    ComposeLayoutsTheme {
+        Chip(text = "Hi there")
+    }
+}
+
+
+@Preview
+@Composable
+fun LayoutsCodelabPreviewStaggeredGrid() {
+    ComposeLayoutsTheme {
+        BodyContentStaggeredGrid()
+    }
+}
+
 
 @Preview(showBackground = true, widthDp = 300, heightDp = 300)
 @Composable
@@ -67,3 +84,4 @@ fun TextWithNormalPaddingPreview() {
         Text("Hi there!", Modifier.padding(top = 32.dp))
     }
 }
+
