@@ -1,5 +1,8 @@
 package com.hernandazevedo.composelayouts
 
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Column
@@ -32,6 +35,17 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import com.hernandazevedo.composelayouts.ui.theme.ComposeLayoutsTheme
 import kotlinx.coroutines.launch
+
+class LayoutsActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ComposeLayoutsTheme {
+                LayoutsCodelab()
+            }
+        }
+    }
+}
 
 @Composable
 fun LayoutsCodelab() {
@@ -71,15 +85,6 @@ fun BodyContent(modifier: Modifier = Modifier) {
 }
 
 
-@Composable
-fun BodyContentCustomColumn(modifier: Modifier = Modifier) {
-    MyOwnColumn(modifier.padding(8.dp)) {
-        Text("MyOwnColumn")
-        Text("places items")
-        Text("vertically.")
-        Text("We've done it by hand!")
-    }
-}
 val topics = listOf(
     "Arts & Crafts", "Beauty", "Books", "Business", "Comics", "Culinary",
     "Design", "Fashion", "Film", "History", "Maths", "Music", "People", "Philosophy",
@@ -163,3 +168,19 @@ fun ImageListItem(index: Int) {
     }
 }
 
+
+@Preview
+@Composable
+fun TextWithPaddingToBaselinePreview() {
+    ComposeLayoutsTheme {
+        Text("Hi there!", Modifier.firstBaselineToTop(32.dp))
+    }
+}
+
+@Preview
+@Composable
+fun TextWithNormalPaddingPreview() {
+    ComposeLayoutsTheme {
+        Text("Hi there!", Modifier.padding(top = 32.dp))
+    }
+}

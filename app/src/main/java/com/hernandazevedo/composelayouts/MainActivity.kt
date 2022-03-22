@@ -27,22 +27,6 @@ private fun MyApp() {
     LayoutsCodelab()
 }
 
-@Preview
-@Composable
-fun ChipPreview() {
-    ComposeLayoutsTheme {
-        Chip(text = "Hi there")
-    }
-}
-
-@Preview
-@Composable
-fun LayoutsCodelabPreviewStaggeredGrid() {
-    ComposeLayoutsTheme {
-        BodyContentStaggeredGrid()
-    }
-}
-
 @Preview(showBackground = true, widthDp = 300, heightDp = 300)
 @Composable
 fun LayoutsCodelabPreview() {
@@ -51,42 +35,3 @@ fun LayoutsCodelabPreview() {
     }
 }
 
-@Preview
-@Composable
-fun TextWithPaddingToBaselinePreview() {
-    ComposeLayoutsTheme {
-        Text("Hi there!", Modifier.firstBaselineToTop(32.dp))
-    }
-}
-
-@Preview
-@Composable
-fun TextWithNormalPaddingPreview() {
-    ComposeLayoutsTheme {
-        Text("Hi there!", Modifier.padding(top = 32.dp))
-    }
-}
-
-@Preview
-@Composable
-fun ConstraintLayoutContentPreview() {
-    ComposeLayoutsTheme {
-        ConstraintLayoutContent()
-    }
-}
-
-@Preview
-@Composable
-fun LargeConstraintLayoutPreview() {
-    ComposeLayoutsTheme {
-        LargeConstraintLayout()
-    }
-}
-
-@Preview
-@Composable
-fun DecoupledConstraintLayoutPreview() {
-    ComposeLayoutsTheme {
-        DecoupledConstraintLayout()
-    }
-}
