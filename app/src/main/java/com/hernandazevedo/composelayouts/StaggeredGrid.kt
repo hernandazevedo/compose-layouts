@@ -1,8 +1,35 @@
 package com.hernandazevedo.composelayouts
 
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.hernandazevedo.composelayouts.ui.theme.ComposeLayoutsTheme
+
+class GridActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ComposeLayoutsTheme {
+                BodyContentStaggeredGrid()
+            }
+        }
+    }
+}
+
+val topics = listOf(
+    "Arts & Crafts", "Beauty", "Books", "Business", "Comics", "Culinary",
+    "Design", "Fashion", "Film", "History", "Maths", "Music", "People", "Philosophy",
+    "Religion", "Social sciences", "Technology", "TV", "Writing"
+)
 
 @Composable
 fun StaggeredGrid(
@@ -58,5 +85,24 @@ fun StaggeredGrid(
                 rowX[row] += placeable.width
             }
         }
+    }
+}
+
+@Composable
+fun BodyContentStaggeredGrid(modifier: Modifier = Modifier) {
+    Row(modifier = modifier.horizontalScroll(rememberScrollState())) {
+        StaggeredGrid(modifier = modifier, rows = 5) {
+            for (topic in topics) {
+                Chip(modifier = Modifier.padding(8.dp), text = topic)
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun StaggeredGridPreview() {
+    ComposeLayoutsTheme {
+        BodyContentStaggeredGrid()
     }
 }

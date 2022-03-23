@@ -85,26 +85,6 @@ fun BodyContent(modifier: Modifier = Modifier) {
 }
 
 
-val topics = listOf(
-    "Arts & Crafts", "Beauty", "Books", "Business", "Comics", "Culinary",
-    "Design", "Fashion", "Film", "History", "Maths", "Music", "People", "Philosophy",
-    "Religion", "Social sciences", "Technology", "TV", "Writing"
-)
-
-@Composable
-fun BodyContentStaggeredGrid(modifier: Modifier = Modifier) {
-    Row(modifier = modifier.horizontalScroll(rememberScrollState())) {
-        StaggeredGrid(modifier = modifier, rows = 5) {
-            for (topic in topics) {
-                Chip(modifier = Modifier.padding(8.dp), text = topic)
-            }
-        }
-    }
-
-}
-
-
-
 @Composable
 fun SimpleList() {
     val scrollState = rememberScrollState()
